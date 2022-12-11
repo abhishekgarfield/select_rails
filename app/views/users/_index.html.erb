@@ -1,0 +1,5 @@
+<%= form_with scope:@user, url:"" ,method: :post do |f|%>
+    <%=f.label :select_User%>
+    <%=f.select :user_id , @users.map {|user| [user.name,user.id]},:prompt=>"Choose user"%>
+<%end %>
+

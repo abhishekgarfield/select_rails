@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Actions</td>
+    </tr>
+    <tr>
+        <td><%= @user.name%></td>
+        <td><%=@user.email%></td>
+        <td><%= link_to "show",@user,:remote => true %>
+        <%= link_to "Edit",edit_user_path(@user),:remote => true ,:class=>"btn btn-primary"%>
+        <%= link_to "delete","/users/#{@user.id}",method:  :delete,data: {confirm:"Are you sure"},:remote => true ,:class=>"btn btn-danger"%></td>
+    </tr>
+</table>

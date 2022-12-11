@@ -1,0 +1,26 @@
+<div class="container">
+    <%= render "index"%>
+    <div id="target1"></div>
+    <div id="target2"></div>
+</div>
+
+
+
+
+ <script>
+    $(document).ready(()=>{
+        alert("asdasd")
+        $("select#user_user_id").change((e)=>{
+            alert("hello");
+
+            $.ajax({
+                url:`users/getinfo/${e.target.value}`,
+                method:"get",
+                data:"",
+                success:(data)=>{
+                    $("#target1").html(data.js)
+                }
+            })
+        })
+    })
+</script>
