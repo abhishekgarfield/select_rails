@@ -19,5 +19,15 @@ class UsersController < ApplicationController
             format.js
         end
     end
+    def update
+        @user=User.find(params[:id])
+        if @user.update(check_params)
+            
+        end
+    end
+
+    private
+    def check_params
+        params.require(:user).permit(:name,:email)
 
 end
