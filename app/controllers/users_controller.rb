@@ -20,14 +20,23 @@ class UsersController < ApplicationController
         end
     end
     def update
+        @users=User.all
         @user=User.find(params[:id])
         if @user.update(check_params)
-            
+             respond_to do |format|
+                format.js
+             end
+        else
+            respond_to do |format|
+                format.js {render :"users/edit"}
+                format.json {render json:@user.errors ,status: :unprocessable_entity}
+            end
         end
     end
 
     private
     def check_params
         params.require(:user).permit(:name,:email)
+    end
 
 end
